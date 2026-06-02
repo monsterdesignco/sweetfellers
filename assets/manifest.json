@@ -1,0 +1,142 @@
+{
+  "tokens": {
+    "font": "Montserrat (ExtraBold headlines / Bold titles / Medium body)",
+    "green": "#006838",
+    "green_dark_heading": "#006535",
+    "cream_bg": "#fcf5e6",
+    "headline_tan": "#e8dcc3",
+    "orange": "#f15a29",
+    "body_gray": "#686254",
+    "testimonial_green": "#add2a3",
+    "design_width": 1728
+  },
+  "design_width": 1728,
+  "assets": {
+    "logo": {
+      "file": "logo.svg",
+      "x": 64,
+      "y": 40,
+      "w": 175,
+      "h": 160,
+      "note": "header logo badge",
+      "bytes": 74642
+    },
+    "wordmark_nav": {
+      "file": "wordmark_nav.svg",
+      "x": 875,
+      "y": 43,
+      "w": 413,
+      "h": 116,
+      "note": "script wordmark",
+      "bytes": 23552
+    },
+    "service_tree_removal": {
+      "file": "service_tree_removal.png",
+      "x": 200,
+      "y": 1797,
+      "w": 408,
+      "h": 340,
+      "note": "service photo 1 (also reused in Our Work)",
+      "bytes": 12707305
+    },
+    "service_tree_care": {
+      "file": "service_tree_care.png",
+      "x": 658,
+      "y": 1797,
+      "w": 408,
+      "h": 340,
+      "note": "service photo 2",
+      "bytes": 2219273
+    },
+    "service_stump": {
+      "file": "service_stump.png",
+      "x": 1119,
+      "y": 1797,
+      "w": 409,
+      "h": 340,
+      "note": "service photo 3",
+      "bytes": 315281
+    },
+    "hero_foliage_left": {
+      "file": "hero_foliage_left.svg",
+      "x": -121,
+      "y": 88,
+      "w": 2348,
+      "h": 696,
+      "note": "hero organic foliage L",
+      "bytes": 200349
+    },
+    "hero_foliage_right": {
+      "file": "hero_foliage_right.svg",
+      "x": 2168,
+      "y": 166,
+      "w": 2348,
+      "h": 696,
+      "note": "hero organic foliage R (mirror)",
+      "bytes": 200349
+    },
+    "hero_group3": {
+      "file": "hero_group3.svg",
+      "x": -66,
+      "y": 144,
+      "w": 1914,
+      "h": 568,
+      "note": "hero foliage group",
+      "bytes": 2058850
+    },
+    "testimonial_blob": {
+      "file": "testimonial_blob.svg",
+      "x": -82,
+      "y": 685,
+      "w": 1852,
+      "h": 865,
+      "note": "testimonial green organic blob",
+      "bytes": 5282
+    },
+    "ourwork_organic": {
+      "file": "ourwork_organic.svg",
+      "x": -43,
+      "y": 3917,
+      "w": 2024,
+      "h": 950,
+      "note": "our-work organic edge",
+      "bytes": 4396928
+    },
+    "footer_logo": {
+      "file": "footer_logo.svg",
+      "x": 64,
+      "y": 4972,
+      "w": 179,
+      "h": 164,
+      "note": "footer logo group",
+      "bytes": 76358
+    },
+    "divider_1": {
+      "file": "divider_1.svg",
+      "x": 1528,
+      "y": 2496,
+      "w": 1328,
+      "h": 2,
+      "note": "services divider line",
+      "bytes": 274
+    },
+    "divider_2": {
+      "file": "divider_2.svg",
+      "x": 1528,
+      "y": 2670,
+      "w": 1328,
+      "h": 2,
+      "note": "services divider line",
+      "bytes": 274
+    },
+    "divider_3": {
+      "file": "divider_3.svg",
+      "x": 1528,
+      "y": 2844,
+      "w": 1326,
+      "h": 2,
+      "note": "services divider line",
+      "bytes": 274
+    }
+  }
+}

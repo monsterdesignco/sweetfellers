@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Navi Notes · Sweet Fellers Tree Care</title>
+<meta name="description" content="Design rationale and open questions for the Sweet Fellers Tree Care site.">
+<meta name="theme-color" content="#006838">
+<script src="/escrow/js/gate.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/pages.css">
+<style>
+  .nn{max-width:780px;margin:0 auto;padding:72px 24px 90px}
+  .nn h2{font-size:26px;color:var(--green-head);margin:38px 0 12px;letter-spacing:-.5px}
+  .nn h2:first-child{margin-top:0}
+  .nn h3{font-size:16px;color:var(--green);margin:22px 0 6px;letter-spacing:0}
+  .nn p,.nn li{font-size:15px;line-height:1.68;color:var(--ink);text-transform:none;letter-spacing:0;margin-bottom:10px}
+  .nn ul{padding-left:22px;margin-bottom:14px}
+  .nn strong{color:var(--green-dark)}
+  .nn code{background:#fff;border:1px solid var(--line);padding:1px 6px;border-radius:3px;font-size:13px;
+    font-family:ui-monospace,monospace}
+  .tag{display:inline-block;padding:3px 9px;border-radius:4px;font-size:10px;font-weight:800;
+    text-transform:uppercase;letter-spacing:1px;margin-right:6px}
+  .tag.done{background:#d6efdf;color:var(--green)}
+  .tag.open{background:#fde6dd;color:var(--rust-dark)}
+  .tag.phase{background:var(--tan);color:var(--green-dark)}
+</style>
+</head>
+<body>
+
+<header class="sf-header">
+  <div class="sf-header__in">
+    <a href="index.html" class="sf-brand">
+      <img src="assets/logo.svg" alt="Sweet Fellers tree emblem">
+      <span class="wm"><span class="nm">SWEET FELLERS</span><span class="tg">SACRAMENTO TREE CARE</span></span>
+    </a>
+    <nav class="sf-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Our Work</a>
+      <a href="blog.html">Blog</a>
+      <a href="shop.html">Merch</a>
+    </nav>
+    <a href="mailto:Sweetfellerstreecare@gmail.com?subject=Sweet%20Fellers%20enquiry" class="sf-cta">Contact Us</a>
+    <button class="sf-burger" aria-label="Open menu" onclick="sfOpen()"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="sf-hero">
+  <div class="sf-hero__in">
+    <p class="sf-eyebrow">Internal · Design Rationale</p>
+    <h1>Navi Notes.</h1>
+    <p class="lede">The design decisions and open items behind this Sweet Fellers build. Not linked from the main nav — this page is for Tom, the client, and anyone curious about the why.</p>
+  </div>
+</section>
+<span class="torn" aria-hidden="true"><svg viewBox="0 0 1200 34" preserveAspectRatio="none"><path d="M0,0 L1200,0 L1200,15 C1080,31 1010,9 920,19 C820,30 760,11 660,21 C560,31 500,10 400,20 C300,30 240,12 140,21 C80,27 40,17 0,23 Z" fill="#006838"/></svg></span>
+
+<section class="nn">
+
+  <h2>How this page was built</h2>
+  <p>The homepage is a <strong>1:1 reproduction of Tom's Figma design</strong>, produced deterministically — the exact layout, type, color, spacing, and assets are pulled straight from the source file and translated to HTML, so nothing drifts from the design. The secondary pages you're on now (Our Work, Blog, Merch, this one) extend that same visual language for content the single-page Figma didn't cover.</p>
+
+  <h2>Design rationale</h2>
+
+  <h3>Forest green + cream + rust</h3>
+  <p>Straight from Tom's system. <strong>Forest green (<code>#006838</code>)</strong> reads established and arboreal — "this crew knows trees." <strong>Cream (<code>#fcf5e6</code>)</strong> warms it so it never feels corporate or like a logging company. <strong>Rust (<code>#f15a29</code>)</strong> is the one action color, used only on CTAs so the eye always knows where to click.</p>
+
+  <h3>Montserrat ExtraBold headlines</h3>
+  <p>At weight 800 the headlines land like a sign on the truck — "TREE CARE SO TENDER, IT'S ALMOST SAPPY" needs weight, not a polite caption. The contrast against Montserrat-500 body text creates rhythm without decorative fonts.</p>
+
+  <h3>Organic edges, humor, social proof</h3>
+  <p>The torn/foliage transitions echo real canopy and keep a hand-made, local feel. The headline pun disarms an anxiety-laden purchase (big trees near the house). The testimonial sits right under the hero — trust before the ask. A single repeated rust CTA trains the click reflex.</p>
+
+  <h2>What's final vs. stand-in</h2>
+
+  <h3><span class="tag done">Final</span> Homepage layout &amp; tokens</h3>
+  <p>Exact reproduction of the Figma frame — verified pixel-by-pixel against the source render. Type, color, spacing, and the 20+ design assets are the real exports from Tom's file.</p>
+
+  <h3><span class="tag done">Final</span> Real Sweet Fellers photos</h3>
+  <p>The Our Work and Blog photos are real Sacramento job images. Phone and email are confirmed from the live site.</p>
+
+  <h3><span class="tag open">Stand-in</span> Service-description copy</h3>
+  <p>The three service blurbs on the homepage repeat placeholder text from the Figma source. Final copy per service comes from Tom / Sweet Fellers.</p>
+
+  <h3><span class="tag open">Stand-in</span> Blog post bodies</h3>
+  <p>The blog cards have real titles (from the live site's October 2024 posts) but the "Read more" links are inert — full article bodies haven't been ported.</p>
+
+  <h3><span class="tag phase">Phase 2</span> Merch shop</h3>
+  <p>Nine merch slots with placeholders. Real lineup, photography, pricing, and a Shopify/Printful hookup come once Sweet Fellers commits to the program.</p>
+
+  <h3><span class="tag phase">Phase 2</span> Booking backend</h3>
+  <p>The Book Now / Contact / Subscribe CTAs currently open email. A real booking form or scheduler is a quick add when desired.</p>
+
+  <h2>Open questions for Tom</h2>
+  <ul>
+    <li><strong>Truss</strong> — named in the Myrtle Cartwright testimonial. Brand mascot to illustrate, or just a name in the quote?</li>
+    <li><strong>Real testimonials</strong> — Myrtle is from the Figma draft. Got real customer quotes to swap in?</li>
+    <li><strong>Service-area cities</strong> — footer says "Sacramento Metropolitan Area." Want a fuller list (Fair Oaks, Roseville, Folsom, Carmichael, Citrus Heights, Granite Bay)?</li>
+    <li><strong>Domain cutover</strong> — ready when you are: this folder is in the Navi Works repo → push → Netlify deploys → repoint DNS.</li>
+  </ul>
+
+  <h2>Stack &amp; cost</h2>
+  <p><span class="tag done">Final</span> Static HTML/CSS on Netlify. Hosting cost: <strong>$0</strong> (free tier) to <strong>~$2/mo</strong> shared on an existing Pro account — vs. <strong>~$17–32/mo</strong> for the current Wix plan. ~$200–400/yr saved with zero loss of function for a brochure site.</p>
+
+  <p style="margin-top:34px"><a href="index.html" class="btn green">← Back to Site</a></p>
+</section>
+
+<footer class="sf-footer">
+  <div class="sf-footer__in">
+    <p class="sf-eyebrow">Stay Connected</p>
+    <h3>Sweet Fellers Tree Care</h3>
+    <div class="sf-foot-grid">
+      <div class="sf-foot-item"><span class="label">Call</span><a href="tel:+19166165345">(916) 616-5345</a></div>
+      <div class="sf-foot-item"><span class="label">Email</span><a href="mailto:Sweetfellerstreecare@gmail.com">Sweetfellerstreecare@gmail.com</a></div>
+      <div class="sf-foot-item"><span class="label">Service Area</span><span class="v">Sacramento Metropolitan Area · CA</span></div>
+    </div>
+    <div class="sf-legal">
+      <span>© <span id="sf-yr">2026</span> Sweet Fellers Tree Care · Sacramento, CA</span>
+      <span>Internal design notes · Navi Works</span>
+    </div>
+  </div>
+</footer>
+
+<div class="sf-drawer-ov" onclick="sfClose()"></div>
+<aside class="sf-drawer" aria-label="Site menu">
+  <button class="x" aria-label="Close menu" onclick="sfClose()">&times;</button>
+  <a href="index.html" style="color:var(--tan)">Home</a>
+  <a href="gallery.html">Our Work</a>
+  <a href="blog.html">Blog</a>
+  <a href="shop.html">Merch</a>
+  <a href="mailto:Sweetfellerstreecare@gmail.com">Contact</a>
+  <a href="tel:+19166165345">Call (916) 616-5345</a>
+</aside>
+
+<script>
+function sfOpen(){document.querySelector('.sf-drawer').classList.add('open');document.querySelector('.sf-drawer-ov').classList.add('open');}
+function sfClose(){document.querySelector('.sf-drawer').classList.remove('open');document.querySelector('.sf-drawer-ov').classList.remove('open');}
+var y=document.getElementById('sf-yr');if(y)y.textContent=new Date().getFullYear();
+</script>
+</body>
+</html>

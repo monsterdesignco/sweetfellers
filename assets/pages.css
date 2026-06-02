@@ -1,0 +1,156 @@
+/* Sweet Fellers — shared styling for the secondary pages (Our Work, Blog, Merch,
+   Navi Notes). Echoes the 1:1 main page: forest green / cream / rust, Montserrat,
+   organic feel, "Stay Connected" footer. Responsive (the main index is a fixed
+   1728px Figma repro; these are normal fluid pages in the same visual language). */
+
+:root{
+  --green:#006838;          /* brand green (hero/footer/cta) */
+  --green-dark:#005530;      /* darker green for depth */
+  --green-head:#006535;      /* services heading green */
+  --cream:#fcf5e6;           /* warm body bg */
+  --tan:#e8dcc3;             /* headline tan on green */
+  --rust:#f15a29;            /* the one "act" color */
+  --rust-dark:#d94c1f;
+  --ink:#686254;             /* body gray on cream */
+  --soft-green:#add2a3;      /* soft testimonial green */
+  --line:rgba(104,98,84,.18);
+  --maxw:1180px;
+  --font:'Montserrat',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--cream);color:var(--ink);line-height:1.6;
+  -webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-weight:800;text-transform:uppercase;line-height:1.05;letter-spacing:-.5px}
+
+/* ── header ─────────────────────────────────────────────── */
+.sf-header{position:sticky;top:0;z-index:50;background:var(--green);
+  border-bottom:1px solid rgba(0,0,0,.15)}
+.sf-header__in{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;
+  gap:18px;padding:14px 24px}
+.sf-brand{display:flex;align-items:center;gap:12px;margin-right:auto}
+.sf-brand img{width:54px;height:auto}
+.sf-brand .wm{display:flex;flex-direction:column;line-height:1}
+.sf-brand .wm .nm{font-weight:800;font-size:18px;color:var(--cream);letter-spacing:.5px}
+.sf-brand .wm .tg{font-weight:600;font-size:10px;color:var(--tan);letter-spacing:2px;margin-top:3px}
+.sf-nav{display:flex;gap:26px}
+.sf-nav a{font-weight:800;font-size:14px;text-transform:uppercase;letter-spacing:1px;
+  color:var(--cream);opacity:.92;padding:4px 0;border-bottom:2px solid transparent;transition:.15s}
+.sf-nav a:hover,.sf-nav a[aria-current="page"]{opacity:1;border-bottom-color:var(--rust)}
+.sf-cta{background:var(--rust);color:#fff;font-weight:800;font-size:13px;text-transform:uppercase;
+  letter-spacing:.5px;padding:11px 20px;border-radius:3px;transition:.15s}
+.sf-cta:hover{background:var(--rust-dark)}
+.sf-burger{display:none;background:transparent;border:0;cursor:pointer;flex-direction:column;
+  gap:5px;padding:6px}
+.sf-burger span{width:24px;height:2px;background:var(--cream);border-radius:2px}
+
+/* ── organic torn edge (green↔cream) ────────────────────── */
+.torn{display:block;width:100%;height:34px;line-height:0}
+.torn svg{width:100%;height:100%;display:block}
+
+/* ── hero / subhero band ────────────────────────────────── */
+/* Hero echoes the homepage's LAYERED treeline (Figma depth): a cream sky fading into
+   the green band, with the dark front canopy (imgGroup3, full-width, bottom-anchored)
+   in front and the pale (imgVector) + soft-green (imgVector1) distant rows behind it,
+   offset horizontally and sized smaller (auto height = natural aspect, no horizontal
+   stretch). The back rows sit higher (position:top) so their baselines land in the
+   cream zone, not on green — so no stray cream seam line. */
+.sf-hero{position:relative;background:var(--green);color:var(--cream);overflow:hidden;
+  padding:200px 24px 96px;text-align:center}
+/* cream→green sky: soft fade, bottom is solid green so the strip's own edge is
+   invisible against the hero behind it. */
+.sf-hero::before{content:"";position:absolute;left:0;right:0;top:0;
+  height:clamp(240px,30vw,440px);z-index:0;
+  background:linear-gradient(var(--cream) 0%,var(--cream) 54%,var(--green) 80%,var(--green) 100%)}
+/* layered treeline: dark front (full) + pale & soft-green distant rows offset behind. */
+.sf-hero::after{content:"";position:absolute;left:0;right:0;top:0;
+  height:clamp(240px,30vw,440px);z-index:1;pointer-events:none;
+  background:
+    url('imgGroup3.svg') no-repeat bottom center,
+    url('imgVector1.svg') no-repeat 28% top,
+    url('imgVector.svg') no-repeat 74% top;
+  background-size:100% 100%, 56% auto, 50% auto}
+.sf-hero__in{position:relative;z-index:2;max-width:900px;margin:0 auto}
+.sf-eyebrow{font-weight:800;font-size:13px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--tan);margin-bottom:16px}
+.sf-hero h1{font-size:clamp(40px,7vw,86px);color:var(--tan)}
+.sf-hero p.lede{margin:22px auto 0;max-width:640px;font-weight:500;font-size:17px;
+  color:rgba(252,245,230,.9);text-transform:none;letter-spacing:0}
+
+/* ── content sections (cream) ───────────────────────────── */
+.sf-section{max-width:var(--maxw);margin:0 auto;padding:72px 24px}
+.sf-section__head{text-align:center;margin-bottom:44px}
+.sf-section__head .sf-eyebrow{color:var(--rust)}
+.sf-section__head h2{font-size:clamp(30px,4.5vw,56px);color:var(--green-head)}
+.sf-section__head p{text-transform:none;letter-spacing:0;font-weight:500;color:var(--ink);
+  max-width:620px;margin:14px auto 0}
+
+/* ── cards (Our Work / Blog) ────────────────────────────── */
+.sf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:26px}
+.sf-card{background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.08);
+  display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
+.sf-card:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(0,0,0,.14)}
+.sf-card .ph{aspect-ratio:4/3;background-size:cover;background-position:center}
+.sf-card .body{padding:22px 22px 26px;display:flex;flex-direction:column;flex:1}
+.sf-card .place{font-weight:800;font-size:11px;letter-spacing:1.5px;color:var(--rust);
+  text-transform:uppercase;margin-bottom:8px}
+.sf-card h4{font-size:21px;color:var(--green-head);margin-bottom:10px}
+.sf-card p{text-transform:none;letter-spacing:0;font-weight:500;font-size:14.5px;color:var(--ink)}
+.sf-card .more{margin-top:16px;font-weight:800;font-size:12px;letter-spacing:1px;color:var(--rust);
+  text-transform:uppercase}
+
+/* ── buttons ────────────────────────────────────────────── */
+.btn{display:inline-block;font-weight:800;font-size:14px;text-transform:uppercase;letter-spacing:.5px;
+  padding:14px 26px;border-radius:3px;transition:.15s;cursor:pointer;border:2px solid transparent}
+.btn.primary{background:var(--rust);color:#fff}
+.btn.primary:hover{background:var(--rust-dark)}
+.btn.outline{background:transparent;color:var(--cream);border-color:rgba(252,245,230,.5)}
+.btn.outline:hover{border-color:var(--cream)}
+.btn.green{background:var(--green);color:var(--cream)}
+.btn.green:hover{background:var(--green-dark)}
+
+/* ── final CTA band ─────────────────────────────────────── */
+.sf-finalcta{background:var(--green);color:var(--cream);text-align:center;padding:80px 24px}
+.sf-finalcta h2{font-size:clamp(30px,4.5vw,52px);color:var(--tan);margin-bottom:14px}
+.sf-finalcta p{text-transform:none;letter-spacing:0;font-weight:500;max-width:600px;margin:0 auto 28px;
+  color:rgba(252,245,230,.9)}
+.sf-cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* ── footer (Stay Connected) ────────────────────────────── */
+.sf-footer{background:var(--green-dark);color:var(--cream);padding:60px 24px 34px}
+.sf-footer__in{max-width:var(--maxw);margin:0 auto}
+.sf-footer .sf-eyebrow{color:var(--tan)}
+.sf-footer h3{font-size:26px;color:var(--cream);margin-bottom:26px}
+.sf-foot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:22px;
+  padding-bottom:28px;border-bottom:1px solid rgba(252,245,230,.18)}
+.sf-foot-item .label{display:block;font-weight:800;font-size:11px;letter-spacing:1.5px;
+  color:var(--tan);text-transform:uppercase;margin-bottom:6px}
+.sf-foot-item a,.sf-foot-item span.v{font-weight:500;text-transform:none;letter-spacing:0;font-size:15px}
+.sf-foot-item a:hover{color:var(--rust)}
+.sf-legal{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:22px;
+  font-size:12.5px;color:rgba(252,245,230,.7);text-transform:none;letter-spacing:0}
+.sf-legal a{text-decoration:underline}
+.sf-legal a:hover{color:var(--rust)}
+
+/* ── mobile drawer ──────────────────────────────────────── */
+.sf-drawer-ov{position:fixed;inset:0;background:rgba(0,0,0,.5);opacity:0;visibility:hidden;
+  transition:.2s;z-index:60}
+.sf-drawer-ov.open{opacity:1;visibility:visible}
+.sf-drawer{position:fixed;top:0;right:0;height:100%;width:280px;max-width:84vw;background:var(--green);
+  z-index:70;transform:translateX(100%);transition:.22s;padding:74px 26px 26px;display:flex;
+  flex-direction:column;gap:4px;box-shadow:-12px 0 40px rgba(0,0,0,.4)}
+.sf-drawer.open{transform:translateX(0)}
+.sf-drawer a{font-weight:800;text-transform:uppercase;font-size:15px;letter-spacing:1px;
+  color:var(--cream);padding:13px 0;border-bottom:1px solid rgba(252,245,230,.12)}
+.sf-drawer a:hover{color:var(--rust)}
+.sf-drawer .x{position:absolute;top:18px;right:22px;background:0;border:0;color:var(--cream);
+  font-size:30px;cursor:pointer;line-height:1}
+
+@media(max-width:760px){
+  .sf-nav,.sf-header .sf-cta{display:none}
+  .sf-burger{display:flex}
+  .sf-section{padding:54px 20px}
+  .sf-hero{padding:64px 20px 74px}
+}

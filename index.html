@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sweet Fellers Tree Care · Sacramento</title>
+<meta name="description" content="Sweet Fellers Tree Care — Sacramento's premier choice for professional tree services. Tree removal, tree care, stump grinding, planting, bracing & arborist assessment.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#006838">
+<script src="/escrow/js/gate.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/pages.css">
+<style>
+  /* ── Fluid homepage. Reuses pages.css tokens/header/footer; everything below is
+       real responsive layout: clamp() type, % / flex / grid, background treeline
+       that scales & crops. No fixed-canvas, no transform scaling. ──────────── */
+
+  /* HERO ---------------------------------------------------------------- */
+  /* One cohesive treeline band: a cream sky strip whose BOTTOM edge is the dark
+     pine silhouette, sitting on the solid green hero. The trees are drawn as a
+     bottom-anchored image inside the cream strip, so their trunks meet the green
+     seam exactly with no cream gaps bleeding through. Tiles seamlessly because
+     imgGroup3 is a continuous treeline; --th keeps strip height == image height. */
+  .hero{position:relative;background:var(--green);color:var(--cream);text-align:center;
+    overflow:hidden;padding:clamp(130px,17vw,250px) 20px clamp(80px,9vw,130px)}
+  /* cream wave at the hero bottom, flowing into the cream testimonial below. Solid
+     toward the bottom (cream-on-cream w/ the next section), transparent toward the
+     green above -> no seam line. */
+  .hero__wave{position:absolute;left:0;bottom:-2px;width:100%;z-index:4;line-height:0;pointer-events:none}
+  .hero__wave svg{width:100%;height:clamp(34px,4.5vw,70px);display:block}
+  /* cream sky strip; its bottom edge is the dark treeline. background-size:cover
+     keeps the trees' natural aspect (no vertical-stretch line artifacts), and the
+     image is bottom-anchored so trunks meet the green seam with no gap line. */
+  /* Treeline band. The strip background is a SOFT cream->green gradient (no hard
+     colour boundary can ever produce a seam line), and its bottom 25% is the SAME
+     green as the hero behind it (so the strip's own bottom edge is green-on-green =
+     invisible). The full treeline paints over it, trunks landing in the green zone. */
+  .hero__trees{position:absolute;left:0;right:0;top:0;height:clamp(240px,30vw,440px);
+    z-index:0;pointer-events:none;
+    background:linear-gradient(var(--cream) 0%, var(--cream) 54%, var(--green) 80%, var(--green) 100%)}
+  /* Layered treeline (Figma depth): pale faded back row (imgVector, cream) + soft-green
+     mid row (imgVector1) peeking higher, with the dark front canopy (imgGroup3) on top.
+     All bottom-anchored over the cream->green gradient so trunks land in the green. */
+  .hero__trees::after{content:"";position:absolute;inset:0;
+    background:
+      url('assets/imgGroup3.svg') no-repeat bottom center,
+      url('assets/imgVector1.svg') no-repeat 28% top,
+      url('assets/imgVector.svg') no-repeat 74% top;
+    background-size:100% 100%, 56% auto, 50% auto}
+  .hero__in{position:relative;z-index:2;max-width:1100px;margin:0 auto}
+  .hero .kicker{font-weight:800;font-size:clamp(11px,1.1vw,15px);letter-spacing:.16em;
+    text-transform:uppercase;color:var(--cream);margin-bottom:clamp(14px,1.6vw,20px)}
+  .hero h1{font-size:clamp(34px,6vw,84px);line-height:1.02;color:var(--tan);
+    text-transform:uppercase;letter-spacing:-.01em;margin:0 auto;max-width:16ch}
+  .hero .lede{margin:clamp(18px,2.4vw,28px) auto 0;max-width:60ch;font-weight:500;
+    text-transform:none;letter-spacing:0;font-size:clamp(15px,1.3vw,18px);
+    color:rgba(252,245,230,.92);line-height:1.6}
+  .hero .btn{margin-top:clamp(20px,2.4vw,30px)}
+
+  /* TESTIMONIAL (on green — the green hero band extends through it, then a torn edge
+     hands off to the cream Services section below). */
+  .testi{position:relative;background:var(--green);text-align:center;
+    padding:clamp(40px,6vw,90px) 20px clamp(80px,9vw,130px)}
+  .testi__in{max-width:900px;margin:0 auto}
+  .testi blockquote{font-weight:500;font-style:italic;color:rgba(252,245,230,.95);
+    font-size:clamp(18px,2.4vw,32px);line-height:1.5;margin:0}
+  .testi blockquote .who{display:block;margin-top:18px;font-style:normal;font-weight:800;
+    color:var(--tan);font-size:clamp(15px,1.5vw,20px);text-transform:uppercase;letter-spacing:.04em}
+  /* torn-paper divider: cream rising into the green, handing off to Services. */
+  .testi__wave{position:absolute;left:0;bottom:-1px;width:100%;z-index:4;line-height:0;pointer-events:none}
+  .testi__wave svg{width:100%;height:clamp(26px,3vw,46px);display:block}
+
+  /* SERVICES (cream) --------------------------------------------------- */
+  .svc{background:var(--cream);padding:clamp(20px,4vw,40px) 20px clamp(60px,8vw,110px)}
+  .svc__in{max-width:1180px;margin:0 auto}
+  .svc h2{text-align:center;color:var(--green-head);font-size:clamp(30px,5vw,64px);
+    text-transform:uppercase;margin-bottom:clamp(36px,5vw,64px)}
+  .svc-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:clamp(20px,2.5vw,34px);margin-bottom:clamp(40px,5vw,70px)}
+  .svc-card{background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 6px 22px rgba(0,0,0,.08);
+    display:flex;flex-direction:column}
+  .svc-card .ph{aspect-ratio:6/5;background-size:cover;background-position:center}
+  .svc-card .b{padding:22px 22px 26px;display:flex;flex-direction:column;flex:1}
+  .svc-card h3{color:var(--green-head);font-size:clamp(20px,2.2vw,30px);margin-bottom:10px}
+  .svc-card p{text-transform:none;letter-spacing:0;font-weight:500;color:var(--ink);
+    font-size:15px;line-height:1.55;margin-bottom:18px}
+  .svc-card .btn{margin-top:auto;align-self:flex-start}
+  .svc-rows{display:grid;gap:clamp(14px,2vw,22px)}
+  .svc-row{display:grid;grid-template-columns:minmax(170px,1fr) 2fr auto;gap:24px;align-items:center;
+    padding-bottom:clamp(14px,2vw,22px);border-bottom:1px solid var(--line)}
+  .svc-row:last-child{border-bottom:0}
+  .svc-row h4{color:var(--green-head);font-size:clamp(18px,2vw,28px);text-transform:uppercase}
+  .svc-row p{text-transform:none;letter-spacing:0;font-weight:500;color:var(--ink);font-size:15px;line-height:1.55}
+  @media(max-width:680px){.svc-row{grid-template-columns:1fr;gap:8px}.svc-row .btn{justify-self:start}}
+
+  /* OUR WORK (full-bleed photo w/ wavy edges) -------------------------- */
+  .work{position:relative;color:var(--cream);background:#1d1d1d;overflow:hidden}
+  .work__bg{position:absolute;inset:0;background-image:url('assets/imgMathiasRedingPRPiZt3ZfUqUnsplash2.jpg');
+    background-size:cover;background-position:center}
+  .work__bg::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg,rgba(20,30,20,.78),rgba(20,30,20,.25) 60%,rgba(20,30,20,0))}
+  /* Wave edges: each SVG is taller than the visible wave and its SOLID half
+     overlaps generously into its own section's colour (cream above / green below)
+     so there is no thin gap/line where it meets the flat fill. Negative offset
+     pulls the solid edge past the section boundary. */
+  .wave{position:absolute;left:0;width:100%;line-height:0;z-index:4;display:block;pointer-events:none}
+  .wave svg{width:100%;height:clamp(40px,5vw,80px);display:block}
+  .wave.top{top:-2px}.wave.bot{bottom:-2px}
+  .work__in{position:relative;z-index:3;max-width:1180px;margin:0 auto;
+    padding:clamp(90px,12vw,170px) 20px clamp(110px,14vw,190px)}
+  .work__in .kicker{font-weight:800;font-size:clamp(11px,1.3vw,15px);letter-spacing:.15em;
+    text-transform:uppercase;color:var(--tan);margin-bottom:14px}
+  .work__in h2{font-size:clamp(34px,5vw,64px);text-transform:uppercase;margin-bottom:16px}
+  .work__in p{text-transform:none;letter-spacing:0;font-weight:500;max-width:46ch;
+    font-size:clamp(15px,1.5vw,18px);line-height:1.6;margin-bottom:26px;color:rgba(252,245,230,.92)}
+
+  /* CTA (green) -------------------------------------------------------- */
+  .cta{background:var(--green);color:var(--cream);text-align:center;padding:clamp(70px,10vw,130px) 20px}
+  .cta h2{color:var(--tan);font-size:clamp(32px,5.5vw,72px);text-transform:uppercase;margin-bottom:16px}
+  .cta p{text-transform:none;letter-spacing:0;font-weight:500;max-width:54ch;margin:0 auto 30px;
+    font-size:clamp(15px,1.6vw,20px);line-height:1.6;color:rgba(252,245,230,.92)}
+</style>
+</head>
+<body>
+
+<header class="sf-header">
+  <div class="sf-header__in">
+    <a href="index.html" class="sf-brand">
+      <img src="assets/logo.svg" alt="Sweet Fellers tree emblem">
+      <span class="wm"><span class="nm">SWEET FELLERS</span><span class="tg">SACRAMENTO TREE CARE</span></span>
+    </a>
+    <nav class="sf-nav" aria-label="Primary">
+      <a href="gallery.html">Our Work</a>
+      <a href="blog.html">Blog</a>
+      <a href="shop.html">Merch</a>
+    </nav>
+    <a href="mailto:Sweetfellerstreecare@gmail.com?subject=Sweet%20Fellers%20enquiry" class="sf-cta">Contact Us</a>
+    <button class="sf-burger" aria-label="Open menu" onclick="sfOpen()"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero__trees" aria-hidden="true"></div>
+  <div class="hero__in">
+    <p class="kicker">Sacramento's Premier Choice for Tree Services</p>
+    <h1>Tree care so tender, it's almost sappy</h1>
+    <p class="lede">Welcome to Sweet Fellers Tree Care, your premier choice for professional tree services in Sacramento and beyond. With a dedication to quality and customer satisfaction, we offer a full range of services to meet your tree care needs.</p>
+    <a href="mailto:Sweetfellerstreecare@gmail.com?subject=Book%20Now" class="btn primary">Book Now</a>
+  </div>
+</section>
+
+<section class="testi">
+  <div class="testi__in">
+    <blockquote>
+      "Truss did such a great job. I've hated that tree blocking my view and dropping its leaves for so long I almost cut it down myself. Thank god I didn't because it would have crushed my husband… on second thought, maybe I should have!"
+      <span class="who">Myrtle Cartwright</span>
+    </blockquote>
+  </div>
+  <span class="testi__wave" aria-hidden="true"><svg viewBox="0 0 1200 26.3" preserveAspectRatio="none"><path d="M0,26.3 L0.0,3.16 L9.1,4.42 L27.2,8.78 L36.3,12.82 L54.4,12.82 L72.6,13.46 L81.6,14.16 L99.8,9.78 L108.9,6.76 L117.9,7.56 L145.1,9.11 L163.3,10.91 L172.4,15.68 L190.5,19.42 L199.6,21.81 L208.6,23.09 L226.8,23.61 L235.9,23.11 L244.9,23.84 L290.3,23.04 L308.4,24.07 L317.5,24.55 L326.6,25.28 L335.6,24.77 L353.8,20.30 L362.9,18.16 L371.9,16.42 L381.0,13.59 L399.1,13.39 L417.3,11.75 L426.3,8.67 L444.5,8.88 L453.6,7.63 L462.6,6.49 L471.7,5.51 L489.8,3.55 L508.0,1.05 L517.1,2.18 L526.1,3.35 L535.2,5.57 L544.3,8.13 L553.3,10.84 L562.4,12.02 L571.5,16.30 L580.6,15.94 L589.6,15.87 L607.8,15.80 L625.9,16.55 L635.0,14.54 L644.1,14.23 L662.2,10.73 L671.3,9.08 L689.4,7.60 L707.6,8.83 L716.6,9.49 L725.7,10.91 L734.8,14.85 L743.8,16.60 L762.0,20.65 L771.1,23.09 L780.1,22.25 L789.2,23.64 L807.3,23.50 L852.7,23.07 L870.8,24.07 L879.9,24.57 L889.0,25.11 L898.1,24.99 L916.2,20.28 L925.3,18.13 L934.3,16.35 L943.4,13.53 L961.6,13.46 L970.6,13.16 L979.7,11.79 L988.8,8.63 L1006.9,8.81 L1016.0,7.44 L1052.3,4.67 L1061.3,3.48 L1070.4,1.00 L1079.5,2.09 L1097.6,4.91 L1106.7,8.40 L1115.8,10.86 L1124.8,10.54 L1133.9,13.48 L1143.0,16.09 L1152.1,15.85 L1179.3,15.85 L1197.4,2.86 L1200,26.3 Z" fill="#fcf5e6"/></svg></span>
+</section>
+
+<section class="svc">
+  <div class="svc__in">
+    <h2>Our Services</h2>
+    <div class="svc-cards">
+      <article class="svc-card"><div class="ph" style="background-image:url('assets/service_tree_removal.png')"></div>
+        <div class="b"><h3>Tree Removal</h3><p>Tree removal services safely cut down and dispose of trees that are dead, diseased, or pose a risk to property and people.</p>
+        <a href="mailto:Sweetfellerstreecare@gmail.com?subject=Tree%20Removal" class="btn primary">Book Now</a></div></article>
+      <article class="svc-card"><div class="ph" style="background-image:url('assets/service_tree_care.png')"></div>
+        <div class="b"><h3>Tree Care</h3><p>Ongoing care, crown thinning, and health assessments to keep your mature trees safe, strong, and thriving year-round.</p>
+        <a href="mailto:Sweetfellerstreecare@gmail.com?subject=Tree%20Care" class="btn primary">Book Now</a></div></article>
+      <article class="svc-card"><div class="ph" style="background-image:url('assets/service_stump.png')"></div>
+        <div class="b"><h3>Stump Grinding</h3><p>Professional stump grinding below grade with dust containment — leaving your yard clean and ready to replant or sod.</p>
+        <a href="mailto:Sweetfellerstreecare@gmail.com?subject=Stump%20Grinding" class="btn primary">Book Now</a></div></article>
+    </div>
+    <div class="svc-rows">
+      <div class="svc-row"><h4>Tree Planting</h4><p>Right-tree-right-place planting with native, low-water species suited to the Sacramento climate.</p>
+        <a href="mailto:Sweetfellerstreecare@gmail.com?subject=Tree%20Planting" class="btn primary">Book Now</a></div>
+      <div class="svc-row"><h4>Tree Bracing/Cabling</h4><p>Structural support for heavy limbs and split leaders to protect valued trees and the property below them.</p>
+        <a href="mailto:Sweetfellerstreecare@gmail.com?subject=Tree%20Bracing" class="btn primary">Book Now</a></div>
+      <div class="svc-row"><h4>Arborists Assessment</h4><p>A certified eye on tree health, risk, and care plans — clear written findings, no upsell.</p>
+        <a href="mailto:Sweetfellerstreecare@gmail.com?subject=Arborist%20Assessment" class="btn primary">Book Now</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="work">
+  <div class="work__bg" role="img" aria-label="Sweet Fellers crew cutting a tree with a chainsaw"></div>
+  <span class="wave top" aria-hidden="true"><svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,0 L1200,0 L1200,40 C1040,58 980,26 840,42 C700,56 640,28 480,44 C340,56 280,30 140,44 C80,50 40,38 0,44 Z" fill="#fcf5e6"/></svg></span>
+  <div class="work__in">
+    <p class="kicker">Recent Work</p>
+    <h2>Our Work</h2>
+    <p>Tree removal services safely cut down and dispose of trees that are dead, diseased, or pose a risk to property and people.</p>
+    <a href="gallery.html" class="btn primary">View Gallery</a>
+  </div>
+  <span class="wave bot" aria-hidden="true"><svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,60 L1200,60 L1200,20 C1040,38 980,6 840,22 C700,36 640,8 480,24 C340,36 280,10 140,24 C80,30 40,18 0,24 Z" fill="#006838"/></svg></span>
+</section>
+
+<section class="cta">
+  <h2>Ready to put us to work?</h2>
+  <p>Tree removal services safely cut down and dispose of trees that are dead, diseased, or pose a risk to property and people.</p>
+  <a href="mailto:Sweetfellerstreecare@gmail.com?subject=Book%20Now" class="btn primary">Book Now</a>
+</section>
+
+<footer class="sf-footer">
+  <div class="sf-footer__in">
+    <p class="sf-eyebrow">Stay Connected</p>
+    <h3>Sweet Fellers Tree Care</h3>
+    <div class="sf-foot-grid">
+      <div class="sf-foot-item"><span class="label">Call</span><a href="tel:+19166165345">916.616.5345</a></div>
+      <div class="sf-foot-item"><span class="label">Email</span><a href="mailto:Sweetfellerstreecare@gmail.com">sweetfellerstreecare@gmail.com</a></div>
+      <div class="sf-foot-item"><span class="label">Service Area</span><span class="v">Sacramento Metropolitan Area · CA</span></div>
+    </div>
+    <div class="sf-legal">
+      <span>© <span id="sf-yr">2026</span> Sweet Fellers Tree Care · Sacramento, CA</span>
+      <span><a href="navi-notes.html">Site notes</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="sf-drawer-ov" onclick="sfClose()"></div>
+<aside class="sf-drawer" aria-label="Site menu">
+  <button class="x" aria-label="Close menu" onclick="sfClose()">&times;</button>
+  <a href="index.html" style="color:var(--tan)">Home</a>
+  <a href="gallery.html">Our Work</a>
+  <a href="blog.html">Blog</a>
+  <a href="shop.html">Merch</a>
+  <a href="mailto:Sweetfellerstreecare@gmail.com">Contact</a>
+  <a href="tel:+19166165345">Call (916) 616-5345</a>
+</aside>
+
+<script>
+function sfOpen(){document.querySelector('.sf-drawer').classList.add('open');document.querySelector('.sf-drawer-ov').classList.add('open');}
+function sfClose(){document.querySelector('.sf-drawer').classList.remove('open');document.querySelector('.sf-drawer-ov').classList.remove('open');}
+var y=document.getElementById('sf-yr');if(y)y.textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
