@@ -158,6 +158,19 @@ h1,h2,h3,h4{font-weight:800;text-transform:uppercase;line-height:1.05;letter-spa
 .sf-ig__fallback{text-align:center;padding:30px 16px;font-weight:600;color:var(--ink)}
 .sf-ig__fallback a{color:var(--rust);text-decoration:underline}
 
+/* Blend the Elfsight widget into the page. It renders in the light DOM, so we can
+   theme it here — these target Elfsight's eapps-* / es-* classes, so re-check if a
+   widget update changes them. (Colors/fonts can also be set in the Elfsight editor.)
+   NOTE: the free-tier "Free Instagram Feed Widget" badge can't be removed from here —
+   Elfsight locks it with a full inline !important style. Removing it cleanly requires a
+   paid Elfsight plan. */
+.eapps-instagram-feed-header-follow-button,.es-header-follow-button{
+  background-color:var(--green)!important;border-color:var(--green)!important}                            /* Follow: IG blue -> brand green */
+.eapps-instagram-feed-header-follow-button:hover,.es-header-follow-button:hover{
+  background-color:var(--green-dark)!important}
+.elfsight-app-8227556a-f680-412f-8533-8b812927ad6c *{
+  font-family:'Montserrat',system-ui,-apple-system,sans-serif!important}                                 /* match site typeface (icons are SVG) */
+
 @media(max-width:760px){
   .sf-nav,.sf-header .sf-cta{display:none}
   .sf-burger{display:flex}
