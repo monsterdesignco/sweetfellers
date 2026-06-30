@@ -5,9 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Blog · Sweet Fellers Tree Care · Tips &amp; Stories</title>
 <meta name="description" content="Notes from the field — tree care tips, stories, and seasonal advice from Sweet Fellers, Sacramento's premier tree service.">
-<meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#006838">
-<script src="/escrow/js/gate.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
@@ -41,7 +39,28 @@
 </section>
 <span class="torn" aria-hidden="true"><svg viewBox="0 0 1200 34" preserveAspectRatio="none"><path d="M0,0 L1200,0 L1200,15 C1080,31 1010,9 920,19 C820,30 760,11 660,21 C560,31 500,10 400,20 C300,30 240,12 140,21 C80,27 40,17 0,23 Z" fill="#006838"/></svg></span>
 
+<!-- ── Instagram: live feed from @sweetfellerstreecare (auto-updating via Behold) ── -->
+<section class="sf-section sf-ig" aria-label="Latest from our Instagram">
+  <div class="sf-ig__head">
+    <div>
+      <p class="sf-eyebrow">Fresh Off The Saw</p>
+      <h2>Straight From The Field</h2>
+      <p class="sub">Real Sacramento jobs, posted as they happen — pulled live from our Instagram, <span class="sf-ig__handle">@sweetfellerstreecare</span>.</p>
+    </div>
+    <a class="sf-ig__follow" href="https://www.instagram.com/sweetfellerstreecare/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A4.5 4.5 0 1 1 12 16.5 4.5 4.5 0 0 1 12 7.5Zm0 2A2.5 2.5 0 1 0 12 14.5 2.5 2.5 0 0 0 12 9.5ZM17.5 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>
+      Follow Us
+    </a>
+  </div>
+  <div id="sf-ig-grid" class="sf-ig__grid"><!-- tiles injected by JS --></div>
+</section>
+
 <section class="sf-section">
+  <div class="sf-section__head">
+    <p class="sf-eyebrow">Guides &amp; Tips</p>
+    <h2>Tree Care, Explained</h2>
+    <p>Straight answers on the calls homeowners ask us most — when it's a DIY afternoon and when it's time to phone a pro.</p>
+  </div>
   <div class="sf-grid">
     <article class="sf-card"><div class="ph" style="background-image:url('assets/blog-tree-removal.jpg')"></div>
       <div class="body"><p class="place">October 2024 · 4 min read</p><h4>Expert Tree Removal in the Sacramento Area</h4>
@@ -79,7 +98,6 @@
     </div>
     <div class="sf-legal">
       <span>© <span id="sf-yr">2026</span> Sweet Fellers Tree Care · Sacramento, CA</span>
-      <span><a href="navi-notes.html">Site notes</a></span>
     </div>
   </div>
 </footer>
@@ -99,6 +117,77 @@
 function sfOpen(){document.querySelector('.sf-drawer').classList.add('open');document.querySelector('.sf-drawer-ov').classList.add('open');}
 function sfClose(){document.querySelector('.sf-drawer').classList.remove('open');document.querySelector('.sf-drawer-ov').classList.remove('open');}
 var y=document.getElementById('sf-yr');if(y)y.textContent=new Date().getFullYear();
+</script>
+
+<!-- ── Live Instagram tiles (auto-updating via Behold JSON feed) ──────────────────
+     TO GO LIVE: 1) create a free feed at behold.so  2) connect @sweetfellerstreecare
+     3) paste the feed ID into FEED_ID below. Until then (and if the feed ever fails)
+     the grid shows our own job photos linking straight to the Instagram profile. -->
+<script>
+(function(){
+  var FEED_ID = "";                 /* ← paste Behold feed ID here to activate the live feed */
+  var MAX = 8;
+  var PROFILE = "https://www.instagram.com/sweetfellerstreecare/";
+  var grid = document.getElementById('sf-ig-grid');
+  if(!grid) return;
+
+  var IG='<path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A4.5 4.5 0 1 1 12 16.5 4.5 4.5 0 0 1 12 7.5Zm0 2A2.5 2.5 0 1 0 12 14.5 2.5 2.5 0 0 0 12 9.5ZM17.5 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/>';
+  var PLAY='<path d="M8 5v14l11-7z"/>';
+  var CAR='<path d="M8 3h10a3 3 0 0 1 3 3v10h-2V6a1 1 0 0 0-1-1H8V3Zm-3 4h9a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z"/>';
+  var HEART='<path d="M12 21s-6.7-4.35-9.3-8.04C.9 10.27 1.7 6.6 4.9 5.7c1.9-.53 3.8.3 4.7 1.6l.4.6.4-.6c.9-1.3 2.8-2.13 4.7-1.6 3.2.9 4 4.57 2.2 7.26C18.7 16.65 12 21 12 21Z"/>';
+  var CHAT='<path d="M12 3C6.8 3 2.5 6.4 2.5 10.6c0 2.1 1.1 4 2.9 5.4-.1 1.1-.6 2.4-1.6 3.6 1.8-.2 3.4-.9 4.6-1.8 1.1.3 2.3.5 3.1.5 5.2 0 9.5-3.4 9.5-7.7S17.2 3 12 3Z"/>';
+  function svg(p){return '<svg viewBox="0 0 24 24" aria-hidden="true">'+p+'</svg>';}
+  function esc(s){return (s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function fmt(n){return n>=1000?(n/1000).toFixed(1).replace(/\.0$/,'')+'k':String(n);}
+
+  function skeleton(){var h='';for(var i=0;i<MAX;i++)h+='<span class="sf-ig__tile sf-ig__skel"></span>';grid.innerHTML=h;}
+
+  function tileHTML(o){
+    var badge = o.type==='VIDEO'?PLAY:(o.type==='CAROUSEL_ALBUM'?CAR:IG);
+    var meta='';
+    if(o.likes!=null||o.comments!=null){
+      meta='<span class="sf-ig__meta"><span>'+svg(HEART)+fmt(o.likes||0)+'</span>'+
+           '<span>'+svg(CHAT)+fmt(o.comments||0)+'</span></span>';
+    }
+    var cap = o.cap?esc(o.cap):'View on Instagram';
+    return '<a class="sf-ig__tile" href="'+o.href+'" target="_blank" rel="noopener" aria-label="'+esc((o.cap||'View on Instagram').slice(0,90))+'">'+
+      '<img src="'+o.img+'" alt="'+esc(o.alt)+'" loading="lazy">'+
+      '<span class="sf-ig__badge">'+svg(badge)+'</span>'+
+      '<span class="sf-ig__ov"><span class="sf-ig__cap">'+cap+'</span>'+meta+'</span></a>';
+  }
+
+  function render(items){grid.innerHTML=items.slice(0,MAX).map(tileHTML).join('');}
+
+  /* graceful fallback: our own job photos → link to the IG profile */
+  var FALLBACK=[
+    {img:'assets/oak-over-house.jpg',alt:'Large oak limbed back over a Sacramento home'},
+    {img:'assets/blog-tree-removal.jpg',alt:'Tree removal in progress'},
+    {img:'assets/stump-grinder-job.jpg',alt:'Stump grinding job'},
+    {img:'assets/landscape-work.jpg',alt:'Finished landscape after tree work'},
+    {img:'assets/hero-logs.jpg',alt:'Bucked logs after a removal'},
+    {img:'assets/blog-retro-garden.jpg',alt:'Heritage garden tree care'}
+  ];
+  function fallback(){render(FALLBACK.map(function(f){return {href:PROFILE,img:f.img,alt:f.alt,cap:'',type:'IMAGE',likes:null,comments:null};}));}
+
+  if(!FEED_ID){fallback();return;}
+  skeleton();
+  fetch('https://feeds.behold.so/'+FEED_ID,{cache:'no-store'})
+    .then(function(r){if(!r.ok)throw 0;return r.json();})
+    .then(function(d){
+      var posts=(d&&d.posts)||[];
+      if(!posts.length){fallback();return;}
+      render(posts.map(function(p){
+        var s=p.sizes||{};
+        var img=(p.mediaType==='VIDEO'&&p.thumbnailUrl)?p.thumbnailUrl:
+                ((s.medium&&s.medium.mediaUrl)||(s.large&&s.large.mediaUrl)||p.mediaUrl);
+        return {href:p.permalink||PROFILE,img:img,
+          alt:p.altText||p.prunedCaption||'Sweet Fellers Instagram post',
+          cap:p.prunedCaption||p.caption||'',type:p.mediaType,
+          likes:p.likeCount,comments:p.commentsCount};
+      }));
+    })
+    .catch(fallback);
+})();
 </script>
 </body>
 </html>
