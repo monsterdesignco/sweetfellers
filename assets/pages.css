@@ -149,18 +149,11 @@ h1,h2,h3,h4{font-weight:800;text-transform:uppercase;line-height:1.05;letter-spa
   font-size:30px;cursor:pointer;line-height:1}
 
 /* ── Instagram feed (Elfsight widget) + section header ─ */
-.sf-ig__head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;
-  flex-wrap:wrap;margin-bottom:30px}
+.sf-ig__head{margin-bottom:30px}
 .sf-ig__head .sf-eyebrow{color:var(--rust)}
 .sf-ig__head h2{font-size:clamp(28px,4.2vw,50px);color:var(--green-head)}
 .sf-ig__head .sub{text-transform:none;letter-spacing:0;font-weight:500;color:var(--ink);
   margin-top:8px;max-width:560px}
-.sf-ig__follow{display:inline-flex;align-items:center;gap:9px;background:var(--green);color:var(--cream);
-  font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:.5px;padding:12px 20px;
-  border-radius:3px;white-space:nowrap;transition:.15s}
-.sf-ig__follow:hover{background:var(--green-dark);color:var(--cream)}
-.sf-ig__follow svg{width:18px;height:18px;fill:currentColor}
-.sf-ig__handle{font-weight:600;opacity:.85}
 /* fallback link shown until the Elfsight widget loads (Elfsight replaces it) */
 .sf-ig__fallback{text-align:center;padding:30px 16px;font-weight:600;color:var(--ink)}
 .sf-ig__fallback a{color:var(--rust);text-decoration:underline}
@@ -170,5 +163,4 @@ h1,h2,h3,h4{font-weight:800;text-transform:uppercase;line-height:1.05;letter-spa
   .sf-burger{display:flex}
   .sf-section{padding:54px 20px}
   .sf-hero{padding:64px 20px 74px}
-  .sf-ig__follow{padding:11px 16px}
 }
