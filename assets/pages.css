@@ -148,7 +148,7 @@ h1,h2,h3,h4{font-weight:800;text-transform:uppercase;line-height:1.05;letter-spa
 .sf-drawer .x{position:absolute;top:18px;right:22px;background:0;border:0;color:var(--cream);
   font-size:30px;cursor:pointer;line-height:1}
 
-/* ── Instagram feed (live, auto-updating via Behold; custom tiles) ─ */
+/* ── Instagram feed (Elfsight widget) + section header ─ */
 .sf-ig__head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;
   flex-wrap:wrap;margin-bottom:30px}
 .sf-ig__head .sf-eyebrow{color:var(--rust)}
@@ -161,39 +161,9 @@ h1,h2,h3,h4{font-weight:800;text-transform:uppercase;line-height:1.05;letter-spa
 .sf-ig__follow:hover{background:var(--green-dark);color:var(--cream)}
 .sf-ig__follow svg{width:18px;height:18px;fill:currentColor}
 .sf-ig__handle{font-weight:600;opacity:.85}
-
-.sf-ig__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-@media(min-width:560px){.sf-ig__grid{grid-template-columns:repeat(3,1fr)}}
-@media(min-width:900px){.sf-ig__grid{grid-template-columns:repeat(4,1fr);gap:16px}}
-
-.sf-ig__tile{position:relative;display:block;aspect-ratio:1/1;border-radius:8px;overflow:hidden;
-  background:var(--green-dark);box-shadow:0 6px 22px rgba(0,0,0,.10)}
-.sf-ig__tile img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
-.sf-ig__tile:hover img,.sf-ig__tile:focus-visible img{transform:scale(1.07)}
-.sf-ig__tile:focus-visible{outline:3px solid var(--rust);outline-offset:2px}
-/* badge (IG / video / carousel glyph), always visible */
-.sf-ig__badge{position:absolute;top:9px;right:9px;width:26px;height:26px;display:grid;place-items:center;
-  color:#fff;filter:drop-shadow(0 1px 3px rgba(0,0,0,.5));pointer-events:none}
-.sf-ig__badge svg{width:20px;height:20px;fill:currentColor}
-/* hover/focus overlay: caption + engagement */
-.sf-ig__ov{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;
-  gap:9px;padding:14px;color:#fff;text-transform:none;letter-spacing:0;
-  background:linear-gradient(to top,rgba(0,42,22,.9) 0%,rgba(0,42,22,.32) 48%,rgba(0,42,22,0) 74%);
-  opacity:0;transition:opacity .25s ease}
-.sf-ig__tile:hover .sf-ig__ov,.sf-ig__tile:focus-visible .sf-ig__ov{opacity:1}
-.sf-ig__cap{font-size:12.5px;font-weight:600;line-height:1.42;
-  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.sf-ig__meta{display:flex;gap:15px;font-size:12px;font-weight:800;letter-spacing:.3px}
-.sf-ig__meta span{display:inline-flex;align-items:center;gap:5px}
-.sf-ig__meta svg{width:14px;height:14px;fill:currentColor}
-/* loading skeleton */
-.sf-ig__skel{background:linear-gradient(100deg,#0c4f31 30%,#13653f 50%,#0c4f31 70%);
-  background-size:200% 100%;animation:sfIgShim 1.2s linear infinite}
-@keyframes sfIgShim{to{background-position:-200% 0}}
-@media(prefers-reduced-motion:reduce){
-  .sf-ig__tile img,.sf-ig__ov{transition:none}
-  .sf-ig__skel{animation:none}
-}
+/* fallback link shown until the Elfsight widget loads (Elfsight replaces it) */
+.sf-ig__fallback{text-align:center;padding:30px 16px;font-weight:600;color:var(--ink)}
+.sf-ig__fallback a{color:var(--rust);text-decoration:underline}
 
 @media(max-width:760px){
   .sf-nav,.sf-header .sf-cta{display:none}
